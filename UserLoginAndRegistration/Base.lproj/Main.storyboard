@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="loginView" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="1364.5" y="910.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="rBz-Lm-twl">
             <objects>
-                <viewController id="fSU-Y4-Eyq" sceneMemberID="viewController">
+                <viewController id="fSU-Y4-Eyq" customClass="LoginViewController" customModule="UserLoginAndRegistration" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aFo-SR-1bG"/>
                         <viewControllerLayoutGuide type="bottom" id="MPv-jk-Pr0"/>
@@ -164,6 +164,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="fSU-Y4-Eyq" eventType="touchUpInside" id="Y4H-B6-yEg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-DB-wTE">
                                 <rect key="frame" x="148" y="299" width="79" height="30"/>
@@ -185,6 +188,10 @@
                         <color key="backgroundColor" red="1" green="0.88533355810000003" blue="0.55086383930000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="userEmailTextField" destination="ZXe-Nc-bbV" id="IFz-9k-J0q"/>
+                        <outlet property="userPasswordTextField" destination="cuQ-5G-S7L" id="wDA-hh-g3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hk-4E-oTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

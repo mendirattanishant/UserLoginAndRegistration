@@ -13,7 +13,8 @@ class Registration_ViewController: UIViewController {
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var userConfirmPasswordTextField: UITextField!
-    
+    let storeUserEmail = "userEmail";
+    let storeUserPassword = "userPassword";
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +33,7 @@ class Registration_ViewController: UIViewController {
         
         //check for empty field
         if(userEmail!.isEmpty || userPassword!.isEmpty || userConfirmPassword!.isEmpty) {
-            displayMyAlertMessages("All fields muct be filled");
+            displayMyAlertMessages("All fields must be filled");
             return;
         }
         
@@ -43,11 +44,21 @@ class Registration_ViewController: UIViewController {
             return;
         }
         //Store data
-        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
-        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
-        NSUserDefaults.standardUserDefaults().synchronize();
+        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: storeUserEmail)
+        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: storeUserPassword)
+        //NSUserDefaults.standardUserDefaults().synchronize();
         
-        //Display Alert Messages
+        //Display Alert Messages with confirmation
+        let myAlert = UIAlertController(title: "Alert", message: "Successfully Registered", preferredStyle: UIAlertControllerStyle.Alert);
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                action in
+            self.dismissViewControllerAnimated(true, completion:nil)
+            
+        }
+        
+        //Showing alert
+        myAlert.addAction(action);
+        self.presentViewController(myAlert, animated: true, completion:nil);
         
     }
     func displayMyAlertMessages(userMessage:String) {
